@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<h1>Welcome to Bottle Page</h1>
+<a th:href="@{/save}">Add Contact</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th >BrandName</th>
+        <th>WaterType</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="bottle :${list}">
+        <td th:text="${bottle.brandname}"></td>
+        <td th:text="${bottle.watertype}"></td>
+        <td><a th:href="@{/update/{id}(id=${bottle.id})}">update</a></td>
+        <td><a th:href="@{/delete/{id}(id=${bottle.id})}">delete</a></td>
+      </tr>
+    </tbody>
+  </table> 
+</body>
+</html>
